@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="75%">
+      <stop offset="0%" stop-color="#0E1411" />
+      <stop offset="55%" stop-color="#050505" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+    <radialGradient id="spot" cx="50%" cy="22%" r="35%">
+      <stop offset="0%" stop-color="#E6C588" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#E6C588" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)" />
+  <rect width="900" height="1200" fill="url(#spot)" />
+  
+  <defs>
+    <linearGradient id="liquid-aether-bloom-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#F5F4F0" stop-opacity="0.95" />
+      <stop offset="55%" stop-color="#3a2410" />
+      <stop offset="100%" stop-color="#160d05" />
+    </linearGradient>
+    <linearGradient id="glass-aether-bloom-1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F5F4F0" stop-opacity="0.06" />
+      <stop offset="12%" stop-color="#F5F4F0" stop-opacity="0.22" />
+      <stop offset="20%" stop-color="#F5F4F0" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#F5F4F0" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="450" cy="1042" rx="256.68" ry="41.400000000000006" fill="#000000" opacity="0.55" />
+
+  <!-- cap -->
+  <circle cx="450" cy="413.76084000000003" r="87.27120000000001" fill="#0a0a0a" stroke="#C5A059" stroke-width="1" />
+  <circle cx="423.81864" cy="383.21592000000004" r="24.435936000000005" fill="#F5F4F0" opacity="0.12" />
+
+  <!-- gold band -->
+  <rect x="379.62" y="505.32000000000005" width="140.76000000000002" height="23.76" fill="#C5A059" />
+
+  <!-- neck -->
+  <rect x="379.62" y="461.76000000000005" width="140.76000000000002" height="79.2" rx="2" fill="url(#liquid-aether-bloom-1)" stroke="#000" stroke-opacity="0.4" />
+
+  <!-- body -->
+  <rect x="243" y="540.96" width="414" height="491.04" rx="33.12" fill="url(#liquid-aether-bloom-1)" stroke="#000" stroke-opacity="0.5" />
+  <rect x="243" y="540.96" width="414" height="491.04" rx="33.12" fill="url(#glass-aether-bloom-1)" />
+
+  
+
+  <!-- label -->
+  <rect x="296.82" y="648.9888000000001" width="306.36" height="245.52" fill="#050505" stroke="#C5A059" stroke-width="1.2" />
+  <rect x="300.82" y="652.9888000000001" width="298.36" height="237.52" fill="none" stroke="#C5A059" stroke-width="0.5" opacity="0.6" />
+
+  
+  <g transform="translate(394.85519999999997 707.9136000000001) scale(0.34 0.34)" fill="none" stroke="#C5A059" stroke-width="1.4" stroke-linecap="round">
+    <path d="M0 40 L0 -6" />
+    <path d="M0 -4 C -14 -8, -18 -22, -8 -34 C -12 -40, -2 -48, 4 -42 C 12 -50, 24 -42, 20 -32 C 30 -28, 26 -12, 12 -8 C 16 -2, 8 4, 0 -4 Z" />
+    <circle cx="-6" cy="-24" r="1.6" fill="#C5A059" />
+    <circle cx="8" cy="-30" r="1.6" fill="#C5A059" />
+    <circle cx="2" cy="-14" r="1.6" fill="#C5A059" />
+  </g>
+  
+  <g transform="translate(505.14480000000003 707.9136000000001) scale(-0.34 0.34)" fill="none" stroke="#C5A059" stroke-width="1.4" stroke-linecap="round">
+    <path d="M0 40 L0 -6" />
+    <path d="M0 -4 C -14 -8, -18 -22, -8 -34 C -12 -40, -2 -48, 4 -42 C 12 -50, 24 -42, 20 -32 C 30 -28, 26 -12, 12 -8 C 16 -2, 8 4, 0 -4 Z" />
+    <circle cx="-6" cy="-24" r="1.6" fill="#C5A059" />
+    <circle cx="8" cy="-30" r="1.6" fill="#C5A059" />
+    <circle cx="2" cy="-14" r="1.6" fill="#C5A059" />
+  </g>
+
+  <text x="450" y="761.9280000000001" text-anchor="middle" fill="#C5A059" font-family="Georgia, 'Times New Roman', serif" font-size="41.3586" letter-spacing="3.67632">VELARIO</text>
+  <text x="450" y="803.6664000000001" text-anchor="middle" fill="#F5F4F0" font-family="Georgia, serif" font-size="26.95968" letter-spacing="3.0636">AETHER BLOOM</text>
+  <text x="450" y="835.5840000000001" text-anchor="middle" fill="#C5A059" font-family="Helvetica, Arial, sans-serif" font-size="13.786200000000001" letter-spacing="5.51448">EXTRAIT DE PARFUM</text>
+  <text x="450" y="874.8672000000001" text-anchor="middle" fill="#F5F4F0" font-family="Helvetica, Arial, sans-serif" font-size="15.318000000000001" opacity="0.85">MADE IN USA</text>
+  
+</svg>

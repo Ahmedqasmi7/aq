@@ -1,0 +1,311 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------------
+   VELARIO design tokens — the entire site draws from this single scale.
+   Obsidian + parchment carry the site; gold + amber are accents only.
+   ------------------------------------------------------------------- */
+:root {
+  --color-obsidian: #050505;
+  --color-forest: #0e1411;
+  --color-gold: #c5a059;
+  --color-amber: #e6c588;
+  --color-parchment: #f5f4f0;
+
+  --color-gold-dim: #8a7245;
+  --color-line: rgba(197, 160, 89, 0.22);
+
+  /* one spacing scale, reused everywhere */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-sm: 1.25rem;
+  --space-md: 2rem;
+  --space-lg: 3.5rem;
+  --space-xl: 6rem;
+  --space-2xl: 10rem;
+
+  /* one easing curve + duration set, reused for every hover/transition/scroll anim */
+  --ease-velario: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-velario-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --dur-fast: 0.28s;
+  --dur-med: 0.6s;
+  --dur-slow: 1.2s;
+
+  --letterbox: 4vh;
+}
+
+@theme inline {
+  --color-obsidian: var(--color-obsidian);
+  --color-forest: var(--color-forest);
+  --color-gold: var(--color-gold);
+  --color-amber: var(--color-amber);
+  --color-parchment: var(--color-parchment);
+  --color-gold-dim: var(--color-gold-dim);
+
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+
+  --spacing-3xs: var(--space-3xs);
+  --spacing-2xs: var(--space-2xs);
+  --spacing-xs: var(--space-xs);
+  --spacing-sm: var(--space-sm);
+  --spacing-md: var(--space-md);
+  --spacing-lg: var(--space-lg);
+  --spacing-xl: var(--space-xl);
+  --spacing-2xl: var(--space-2xl);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  background: var(--color-obsidian);
+  color: var(--color-parchment);
+}
+
+body {
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  body {
+    cursor: auto;
+  }
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: var(--font-display), serif;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-obsidian);
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  button {
+    cursor: pointer;
+  }
+}
+
+/* Letterbox wrapper — the permanent 4vh matte-black borders (Section 5) */
+.velario-letterbox {
+  position: fixed;
+  left: 0;
+  right: 0;
+  height: var(--letterbox);
+  background: var(--color-obsidian);
+  z-index: 80;
+  pointer-events: none;
+}
+
+.velario-letterbox--top {
+  top: 0;
+}
+
+.velario-letterbox--bottom {
+  bottom: 0;
+}
+
+/* Reusable eyebrow label style */
+.eyebrow {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  font-weight: 400;
+}
+
+/* Utility: gold hairline */
+.hairline {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-line) 20%,
+    var(--color-line) 80%,
+    transparent
+  );
+}
+
+@keyframes velario-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(0.75em);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.velario-fade-up {
+  animation: velario-fade-up var(--dur-slow) var(--ease-velario) both;
+}
+
+/* Custom scrollbar, on brand */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold-dim);
+  border-radius: 4px;
+}
+
+/* ---------------------------------------------------------------------
+   Home cinematic scroll rig
+   ------------------------------------------------------------------- */
+.home-scroll {
+  position: relative;
+  background: var(--color-obsidian);
+}
+
+.home-canvas-fixed {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+}
+
+.home-act {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.home-act__sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 var(--space-lg);
+  pointer-events: none;
+}
+
+.home-act__sticky > * {
+  pointer-events: auto;
+}
+
+.home-act--center .home-act__sticky {
+  gap: var(--space-md);
+}
+
+.home-act__index {
+  position: absolute;
+  top: calc(var(--letterbox) + var(--space-xl));
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.home-act__scroll-cue {
+  position: absolute;
+  bottom: calc(var(--letterbox) + var(--space-lg));
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(245, 244, 240, 0.4);
+  animation: velario-fade-up 1.2s var(--ease-velario) 1.2s both;
+}
+
+.velario-glass-panel {
+  background: rgba(14, 20, 17, 0.45);
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(10px);
+  padding: var(--space-md) var(--space-lg);
+  max-width: 480px;
+}
+
+.velario-glass-panel + .velario-glass-panel {
+  margin-top: var(--space-md);
+}
+
+.velario-glass-panel h3 {
+  font-size: 1.4rem;
+  margin-bottom: var(--space-2xs);
+}
+
+.velario-glass-panel p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: rgba(245, 244, 240, 0.75);
+}
+
+.velario-lookbook-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-sm);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.velario-lookbook-grid figure {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+}
+
+.velario-lookbook-grid figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.velario-lookbook-grid figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-xs);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), transparent);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-parchment);
+}
+
+@media (max-width: 800px) {
+  .velario-lookbook-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="75%">
+      <stop offset="0%" stop-color="#0E1411" />
+      <stop offset="55%" stop-color="#050505" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+    <radialGradient id="spot" cx="50%" cy="22%" r="35%">
+      <stop offset="0%" stop-color="#E6C588" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#E6C588" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)" />
+  <rect width="400" height="400" fill="url(#spot)" />
+  <circle cx="200" cy="200" r="128" fill="none" stroke="#C5A059" stroke-width="1.5" />
+  <text x="200" y="236" text-anchor="middle" fill="#C5A059" font-family="Georgia, serif" font-size="88">EV</text>
+</svg>

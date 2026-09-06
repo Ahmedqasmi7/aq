@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 1200">
+  
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="34%" r="75%">
+      <stop offset="0%" stop-color="#0E1411" />
+      <stop offset="55%" stop-color="#050505" />
+      <stop offset="100%" stop-color="#000000" />
+    </radialGradient>
+    <radialGradient id="spot" cx="50%" cy="22%" r="35%">
+      <stop offset="0%" stop-color="#E6C588" stop-opacity="0.16" />
+      <stop offset="100%" stop-color="#E6C588" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="900" height="1200" fill="url(#bg)" />
+  <rect width="900" height="1200" fill="url(#spot)" />
+  
+  <defs>
+    <linearGradient id="liquid-santal-noir-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#C5A059" stop-opacity="0.95" />
+      <stop offset="55%" stop-color="#3a2410" />
+      <stop offset="100%" stop-color="#160d05" />
+    </linearGradient>
+    <linearGradient id="glass-santal-noir-2" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#F5F4F0" stop-opacity="0.06" />
+      <stop offset="12%" stop-color="#F5F4F0" stop-opacity="0.22" />
+      <stop offset="20%" stop-color="#F5F4F0" stop-opacity="0.04" />
+      <stop offset="100%" stop-color="#F5F4F0" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <ellipse cx="450" cy="946" rx="401.76" ry="64.8" fill="#000000" opacity="0.55" />
+
+  <!-- cap -->
+  <circle cx="450" cy="65.99087999999996" r="136.59840000000003" fill="#0a0a0a" stroke="#C5A059" stroke-width="1" />
+  <circle cx="409.02048" cy="18.181439999999952" r="38.24755200000001" fill="#F5F4F0" opacity="0.12" />
+
+  <!-- gold band -->
+  <rect x="339.84" y="201.83999999999997" width="220.32000000000002" height="33.12" fill="#C5A059" />
+
+  <!-- neck -->
+  <rect x="339.84" y="141.11999999999998" width="220.32000000000002" height="110.4" rx="2" fill="url(#liquid-santal-noir-2)" stroke="#000" stroke-opacity="0.4" />
+
+  <!-- body -->
+  <rect x="126" y="251.51999999999998" width="648" height="684.48" rx="51.84" fill="url(#liquid-santal-noir-2)" stroke="#000" stroke-opacity="0.5" />
+  <rect x="126" y="251.51999999999998" width="648" height="684.48" rx="51.84" fill="url(#glass-santal-noir-2)" />
+
+  <circle cx="592.56" cy="361.03679999999997" r="29.16" fill="#F5F4F0" opacity="0.5" />
+
+  <!-- label -->
+  <rect x="210.24" y="402.1056" width="479.52" height="342.24" fill="#050505" stroke="#C5A059" stroke-width="1.2" />
+  <rect x="214.24" y="406.1056" width="471.52" height="334.24" fill="none" stroke="#C5A059" stroke-width="0.5" opacity="0.6" />
+
+  
+  
+
+  <text x="450" y="559.5360000000001" text-anchor="middle" fill="#C5A059" font-family="Georgia, 'Times New Roman', serif" font-size="64.7352" letter-spacing="5.75424">VELARIO</text>
+  <text x="450" y="617.7167999999999" text-anchor="middle" fill="#F5F4F0" font-family="Georgia, serif" font-size="42.197759999999995" letter-spacing="4.7952">SANTAL NOIR</text>
+  <text x="450" y="662.208" text-anchor="middle" fill="#C5A059" font-family="Helvetica, Arial, sans-serif" font-size="21.5784" letter-spacing="8.631359999999999">EXTRAIT DE PARFUM</text>
+  
+  
+</svg>
