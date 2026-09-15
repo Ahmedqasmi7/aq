@@ -23,6 +23,12 @@ meant to be cloned to, and run on, your own machine.
   running in the background.
 - **Read news / search the web** — only when you have internet, using free, keyless sources
   (RSS feeds, DuckDuckGo HTML). No paid search API required.
+- **Generate images** — `generate_image` calls a local Stable Diffusion model through
+  [Draw Things](https://drawthings.ai) (free, Apple Silicon-optimized). Fully local, no per-image cost.
+- **Assemble videos from images** — `make_slideshow_video` uses `ffmpeg` to turn a set of images into a
+  polished vertical motion video (slow zoom per image, fade in/out, optional background music track).
+  This is **not** AI video generation (no laptop can do that well) — it's a real, free, local edit
+  pipeline for product reveals / ad hooks / social content built from images you already generated.
 
 ## Setup (one-time, on your laptop — not in this cloud session)
 
@@ -46,6 +52,7 @@ meant to be cloned to, and run on, your own machine.
      shell commands unattended is inherently risky — only turn it on once you're comfortable with that,
      and review scheduled-task prompts carefully since the daemon runs them without you watching.
    - `newsFeeds` — RSS feeds for the `read_news` tool.
+   - `drawThingsHost` — where Draw Things' API is listening (see below), default `http://127.0.0.1:7860`.
 4. Sanity check:
    ```bash
    node src/cli.mjs setup
@@ -53,6 +60,21 @@ meant to be cloned to, and run on, your own machine.
 
 No `npm install` is needed — the agent has zero third-party dependencies, only Node.js built-ins
 (requires Node 20+; this machine has Node 22).
+
+### Optional: images (`generate_image`)
+
+1. Install [Draw Things](https://apps.apple.com/app/draw-things-ai-generation/id6444050820) from the
+   Mac App Store (free, built for Apple Silicon).
+2. Open it once and let it download a model (the default it suggests, e.g. SDXL, is fine).
+3. In Draw Things' settings, find the HTTP/API server option and turn it on (default port `7860`,
+   matching `drawThingsHost` above). Draw Things must be **open** for `generate_image` to work.
+
+### Optional: video assembly (`make_slideshow_video`)
+
+Requires `ffmpeg`, free and open source:
+```bash
+brew install ffmpeg   # installs Homebrew first from https://brew.sh if you don't have it
+```
 
 ## Using it
 

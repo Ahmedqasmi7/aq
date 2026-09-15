@@ -17,6 +17,11 @@ const DEFAULTS = {
     "https://hnrss.org/frontpage",
   ],
   maxToolIterations: 8,
+  drawThingsHost: "http://127.0.0.1:7860",
+  imageDefaultWidth: 1024,
+  imageDefaultHeight: 1024,
+  videoWidth: 1080,
+  videoHeight: 1920,
 };
 
 function loadConfig() {

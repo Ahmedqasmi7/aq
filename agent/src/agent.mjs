@@ -15,6 +15,8 @@ function systemPrompt() {
     "web_fetch, web_search, and read_news require an internet connection; if they fail, say so plainly and continue with what you know instead of pretending you have live data.",
     "Use memory_save for durable facts/preferences worth remembering across sessions, and memory_search to recall them.",
     "Use schedule_task when the user wants something to happen automatically later or on a recurring basis; it only fires while the daemon is running.",
+    "generate_image makes images locally via Draw Things (Stable Diffusion) — free, offline, no per-image cost. If it fails to connect, tell the user to open Draw Things and enable its HTTP API, don't just give up silently.",
+    "make_slideshow_video turns a set of images into a vertical motion video (zoom + crossfade-free cuts + optional music) via ffmpeg. It is NOT AI video generation — don't imply it creates novel video content, it assembles images you already have (e.g. from generate_image) into a video edit.",
     memoryContext ? `Known facts about the user from memory:\n${memoryContext}` : "",
   ]
     .filter(Boolean)
