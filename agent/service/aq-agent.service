@@ -1,0 +1,14 @@
+[Unit]
+Description=aq-agent local AI daemon
+After=network-online.target
+
+[Service]
+Type=simple
+# Edit these two paths for your machine:
+WorkingDirectory=/home/YOUR_USER/aq/agent
+ExecStart=/usr/bin/env node /home/YOUR_USER/aq/agent/src/cli.mjs daemon
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=default.target

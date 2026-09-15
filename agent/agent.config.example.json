@@ -1,0 +1,16 @@
+{
+  "ollamaHost": "http://127.0.0.1:11434",
+  "model": "qwen2.5:7b",
+  "workspaceDir": "~/aq-agent-workspace",
+  "allowShell": false,
+  "newsFeeds": [
+    "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "https://hnrss.org/frontpage"
+  ],
+  "maxToolIterations": 8,
+  "drawThingsHost": "http://127.0.0.1:7860",
+  "imageDefaultWidth": 1024,
+  "imageDefaultHeight": 1024,
+  "videoWidth": 1080,
+  "videoHeight": 1920
+}
