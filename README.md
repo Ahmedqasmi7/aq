@@ -9,6 +9,10 @@ Built with Next.js 16 (App Router), TypeScript, Tailwind CSS v4, Three.js /
 React Three Fiber / Drei, GSAP + ScrollTrigger, Lenis smooth scroll, and
 Zustand.
 
+> Looking for the local AI agent (`aq-agent`)? It lives in [`agent/`](agent/README.md) — a
+> standalone, offline-capable daemon that runs on Ollama with no API credits, unrelated to this
+> Next.js site. See `agent/README.md` for setup.
+
 ## Getting Started
 
 ```bash

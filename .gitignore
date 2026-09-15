@@ -40,3 +40,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# aq-agent local state (personal memory/tasks/outputs, machine-specific config)
+/agent/data/
+/agent/agent.config.json
