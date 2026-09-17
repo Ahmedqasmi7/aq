@@ -55,6 +55,16 @@ PATHS_OTHER = [
     "/llms-full.txt",
 ]
 
+# Real content pages discovered to already exist on the store — see
+# AUDIT.md 2026-09-17T02:02Z. Spot-checked, not exhaustive (83 pages
+# total); these confirm the FAQPage schema and nominative disclaimer
+# pattern holds on both the hub and a couple of comparison pages.
+PATHS_CONTENT = [
+    "/pages/best-designer-inspired-fragrances",
+    "/pages/velario-rougeon-comparison",
+    "/pages/velario-aqua-comparison",
+]
+
 
 def fetch(opener, base_url, path, theme_id, retries=2):
     sep = "&" if "?" in path else "?"
@@ -82,6 +92,51 @@ def fetch(opener, base_url, path, theme_id, retries=2):
                 continue
             raise
     raise last_err
+
+
+def check_content_page(opener, base_url, path, theme_id):
+    """FAQPage-bearing /pages/ content: hub page and comparison pages."""
+    result = {"path": path, "pass": True, "notes": []}
+    try:
+        status, body = fetch(opener, base_url, path, theme_id)
+    except Exception as e:
+        result["pass"] = False
+        result["notes"].append(f"fetch error: {e}")
+        return result
+
+    if status != 200:
+        result["pass"] = False
+        result["notes"].append(f"http status {status}")
+        return result
+
+    if "Verifying your connection" in body:
+        result["pass"] = False
+        result["notes"].append("Cloudflare challenge interstitial served instead of content")
+        return result
+
+    blocks = JSONLD_RE.findall(body)
+    types_seen = []
+    for raw in blocks:
+        try:
+            obj = json.loads(raw)
+        except Exception as e:
+            result["pass"] = False
+            result["notes"].append(f"invalid JSON-LD: {e}")
+            continue
+        types_seen.append(obj.get("@type"))
+    result["jsonld_types"] = types_seen
+
+    if "FAQPage" not in types_seen:
+        result["pass"] = False
+        result["notes"].append("expected FAQPage JSON-LD, none found")
+    if "not affiliated with or endorsed by" not in body and "not affiliated with, endorsed by" not in body:
+        result["pass"] = False
+        result["notes"].append("nominative-use disclaimer not found")
+    if "<h1" not in body.lower():
+        result["pass"] = False
+        result["notes"].append("no <h1> found")
+
+    return result
 
 
 def check_page(opener, base_url, path, theme_id, expect_product=False, expect_collection=False):
@@ -193,6 +248,11 @@ def main():
 
     for path in ["/llms.txt", "/llms-full.txt"]:
         r = check_llms_txt(opener, args.base_url, path, args.theme_id)
+        results.append(r)
+        time.sleep(PACE_SECONDS)
+
+    for path in PATHS_CONTENT:
+        r = check_content_page(opener, args.base_url, path, args.theme_id)
         results.append(r)
         time.sleep(PACE_SECONDS)
 
