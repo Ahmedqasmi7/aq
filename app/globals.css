@@ -301,6 +301,32 @@ button {
   }
 }
 
+/* ---------------------------------------------------------------------
+   Specimen homepage — hero, marquee, proof band, wardrobe grid. Scoped
+   token set (Bodoni Moda / Jost, five-color palette) so it doesn't shift
+   the rest of the site, which stays on the Cormorant/Inter system above.
+   ------------------------------------------------------------------- */
+.specimen {
+  --spec-base: #0b0908;
+  --spec-cream: #f2ede4;
+  --spec-gold: #c9a24b;
+  --spec-gold-bright: #e8c77e;
+  --spec-amber: #b8763a;
+
+  --spec-gutter: 80px;
+  --spec-container-pad: 80px;
+
+  background: var(--spec-base);
+  color: var(--spec-cream);
+}
+
+@media (max-width: 900px) {
+  .specimen {
+    --spec-gutter: 24px;
+    --spec-container-pad: 24px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

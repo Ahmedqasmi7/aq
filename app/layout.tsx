@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { displaySerif, sans } from "./fonts";
+import { displaySerif, displaySpecimen, sans, sansSpecimen } from "./fonts";
 import { SiteShell } from "@/components/shell/SiteShell";
 import "./globals.css";
 
@@ -28,7 +28,10 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${displaySerif.variable} ${sans.variable}`}>
+    <html
+      lang="en"
+      className={`${displaySerif.variable} ${sans.variable} ${displaySpecimen.variable} ${sansSpecimen.variable}`}
+    >
       <body>
         <SiteShell>{children}</SiteShell>
       </body>
